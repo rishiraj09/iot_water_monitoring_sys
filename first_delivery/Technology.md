@@ -6,7 +6,7 @@
 
 ## Architecture
 
-![](../../images/Arch.png)
+![Arch](https://user-images.githubusercontent.com/30042823/114012356-83c8e780-9866-11eb-9456-55ee240b39e2.png)
 
 The main purpose of the device is to monitor three important parameters of water i.e.
 pH scale, Turbidity and Temperature. The pH and Turbidity sensors monitors the impurity
@@ -20,7 +20,7 @@ form through a web based dashboard which will hosted on the cloud platform.
 
 ## System Architechture
 
-![](../../images/systemArchitechture.png)
+![systemArchitecture](https://user-images.githubusercontent.com/30042823/114012452-a0651f80-9866-11eb-8e6b-e027067ec300.png)
 
 ### MQTT Broker (AWS Core IOT)
 
