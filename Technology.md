@@ -1,5 +1,24 @@
 # Technology
 
+### IoT Architecture
+
+![Arch](https://user-images.githubusercontent.com/30042823/114012356-83c8e780-9866-11eb-9456-55ee240b39e2.png)
+
+
+### System Architechture
+
+![systemArchitecture](https://user-images.githubusercontent.com/30042823/114012452-a0651f80-9866-11eb-8e6b-e027067ec300.png)
+
+The main purpose of this IoT device is to monitor three important parameters of water i.e.
+pH scale, Turbidity and Temperature. The pH and Turbidity sensors monitors the impurity
+of the water. The sensor data on comparison with the old data if found impure a water
+pump will be activated to add pure water in the artificial pond. From the temperature sensor
+data if the temperature data is high and not moderate a signal would be sent to the
+operator side which will will turn on the LED light to notify the rising temperature. With the
+LED turned on the operator can send a signal to the water pump to add cold water in the
+artificial pond to maintain the moderate temperature. All the data will be presented in visual
+form through a web based dashboard which will hosted on the cloud platform.
+
 ## Main Core Parts
 * Water Quality Monitoring System
 * Ground Server
@@ -24,23 +43,23 @@ measurements are made using **Arduino Uno R3** board as the integration of senso
 much easier with Arduino uno board. The communication between the boards is done
 through **I2C protocol**: the Nucleo board is the **master**, it periodically asks for sensor data
 to the Arduino Uno, which is the **slave**.
-## Architecture
 
-![Arch](https://user-images.githubusercontent.com/30042823/114012356-83c8e780-9866-11eb-9456-55ee240b39e2.png)
 
-The main purpose of the device is to monitor three important parameters of water i.e.
-pH scale, Turbidity and Temperature. The pH and Turbidity sensors monitors the impurity
-of the water. The sensor data on comparison with the old data if found impure a water
-pump will be activated to add pure water in the sh cage. From the temperature sensor
-data if the temperature data is high and not moderate a signal would be sent to the
-operator side which will will turn on the LED light to notify the rising temperature. With the
-LED turned on the operator can send a signal to the water pump to add cold water in the
-sh cage to maintain the moderate temperature. All the datas will be presented in visual
-form through a web based dashboard which will hosted on the cloud platform.
+### Ground Server
 
-## System Architechture
+**Ground Server** acts as a local server that aggregates streams of sensor datas from
+multiple **Water Quality Monitoring Systems** and sends it to the **AWS cloud server** via **MQTT** for
+further data processing. Each Water monitoring system will have a unique id for
+identification.
 
-![systemArchitecture](https://user-images.githubusercontent.com/30042823/114012452-a0651f80-9866-11eb-8e6b-e027067ec300.png)
+### Dashboard
+
+It is the highest level client side component of the project. The **Dashboard** would be
+hosted on remote server **(AWS)** with **Node.js** for the server side backend runtime
+environment. Backend server side runs using **Express framework** and the frontend is
+written using **HTML, Bootstrap, Javascript and EJS View Engine**. All the data
+collected from the sensors would be stored in **MongoDB database**. And finally the
+processed data is displayed on **Dashboard** (or possibly on a **mobile app**).
 
 ### MQTT Broker (AWS Core IOT)
 
