@@ -4,6 +4,26 @@
 * Water Quality Monitoring System
 * Ground Server
 * Dashboard
+
+### Water Quality Monitoring System
+
+**Water Quality Monitoring System** is the main component of the project. The main purpose of
+this system is to collect data from the sensors placed in the remotely placed artificial
+pond and send it through the **Ground Server** to the cloud server and then take actions by
+sending commands to the actuators. A **Temperature sensor (DS18B20 sensor)** is used for
+collecting water temperature data. An **Analog Turbidity Sensor** is used for monitoring
+water impurity. An LED is used for passing light in the water. The amount of light
+scattering data is used for the detection of water impurity level. Impurity of the water is
+also monitored by detecting the ionised charged present in the water. **An Analog pH Sensor** is also used for measuring acidity level of the water. Two water pumps are used in
+this system, one for pumping in cold water when the water temperature rises above
+optimal temperature and the other one for pumping out impure water to maintain an
+optimal water quality. For testing purpose a **Wifi module (ESP8266)** would be used for
+transmitting data but in real life scenario **LoraWan module** to be used instead. The
+sensors are controlled by **Nucleo Board (nucleo-f401re)** with **RIOT OS**, and
+measurements are made using **Arduino Uno R3** board as the integration of sensors are
+much easier with Arduino uno board. The communication between the boards is done
+through **I2C protocol**: the Nucleo board is the **master**, it periodically asks for sensor data
+to the Arduino Uno, which is the **slave**.
 ## Architecture
 
 ![Arch](https://user-images.githubusercontent.com/30042823/114012356-83c8e780-9866-11eb-9456-55ee240b39e2.png)
