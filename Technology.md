@@ -1,9 +1,9 @@
-### IoT Project - Water Quality Monitoring For Offshore Fish Cage
-
-### Sapienza University of Rome – 2021
-
 # Technology
 
+## Main Core Parts
+* Water Quality Monitoring System
+* Ground Server
+* Dashboard
 ## Architecture
 
 ![Arch](https://user-images.githubusercontent.com/30042823/114012356-83c8e780-9866-11eb-9456-55ee240b39e2.png)
