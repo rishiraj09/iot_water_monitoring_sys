@@ -220,11 +220,6 @@ method for data preprocessing.
 
 ### DEVELPOMENT BOARD
 
-
-STM3 And Arduino Uno
-The development board will housed upon Microcontroller STM32 and Arduino Uno for
-connecting the sensor and Wi module(ESP32).
-
 ### STM32 Nucleo F401RE
 Used as master node to house the Ardiuno slave nodes.
 
