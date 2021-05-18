@@ -1,4 +1,4 @@
-## Water Quality Monitoring System for Fish Farm.
+## Water Quality Monitoring System for Fish Farm
 
 ### Group Members :
 
