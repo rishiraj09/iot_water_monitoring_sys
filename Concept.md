@@ -19,22 +19,22 @@ in different ways in web application for the users.
 
 The following Personas, Scenarios and Missions are related to our product, Water Monitoring System of the fishpond.
 
-## Personas:
+## Personas
 
-![Personas](https://user-images.githubusercontent.com/81986838/118861813-3916a280-b8dd-11eb-81fb-869d3984847f.jpg) | ![Personas-Carol](https://user-images.githubusercontent.com/81986838/118861863-49c71880-b8dd-11eb-90f7-6968c55be49d.jpg) | ![Personas-Mike](https://user-images.githubusercontent.com/81986838/118861908-55b2da80-b8dd-11eb-80f2-35828de7dd64.jpg)
+![Personas](https://user-images.githubusercontent.com/81986838/118861813-3916a280-b8dd-11eb-81fb-869d3984847f.jpg)    ![Personas-Carol](https://user-images.githubusercontent.com/81986838/118861863-49c71880-b8dd-11eb-90f7-6968c55be49d.jpg)    ![Personas-Mike](https://user-images.githubusercontent.com/81986838/118861908-55b2da80-b8dd-11eb-80f2-35828de7dd64.jpg)
 
-## Scenarios:
+## Scenarios
 
-![Scenarios](https://user-images.githubusercontent.com/81986838/118862064-8430b580-b8dd-11eb-9763-e39b1abd4de6.jpg) | ![Scenario1](https://user-images.githubusercontent.com/81986838/118862115-93affe80-b8dd-11eb-8f00-32d990ceccc0.jpg) | ![Scenario2](https://user-images.githubusercontent.com/81986838/118862156-a32f4780-b8dd-11eb-8e96-bfe0b60497a5.jpg)
+![Scenarios](https://user-images.githubusercontent.com/81986838/118862064-8430b580-b8dd-11eb-9763-e39b1abd4de6.jpg)    ![Scenario1](https://user-images.githubusercontent.com/81986838/118862115-93affe80-b8dd-11eb-8f00-32d990ceccc0.jpg)    ![Scenario2](https://user-images.githubusercontent.com/81986838/118862156-a32f4780-b8dd-11eb-8e96-bfe0b60497a5.jpg)
 
-## Missions:
+## Missions
 
-![Mission](https://user-images.githubusercontent.com/81986838/118861479-d6250b80-b8dc-11eb-8624-26ae73eaf4d2.jpg) | ![Mission1](https://user-images.githubusercontent.com/81986838/118861694-14bac600-b8dd-11eb-9553-63cf137ace49.jpg) | ![Mission2](https://user-images.githubusercontent.com/81986838/118861746-22704b80-b8dd-11eb-8455-7b1e0192da89.jpg)
+![Mission](https://user-images.githubusercontent.com/81986838/118861479-d6250b80-b8dc-11eb-8624-26ae73eaf4d2.jpg)    ![Mission1](https://user-images.githubusercontent.com/81986838/118861694-14bac600-b8dd-11eb-9553-63cf137ace49.jpg)    ![Mission2](https://user-images.githubusercontent.com/81986838/118861746-22704b80-b8dd-11eb-8455-7b1e0192da89.jpg)
 
 ### Storyboard
 
 
-![Personas-Mike](https://user-images.githubusercontent.com/81986838/118861908-55b2da80-b8dd-11eb-80f2-35828de7dd64.jpg) | ![Scenario1](https://user-images.githubusercontent.com/81986838/118862115-93affe80-b8dd-11eb-8f00-32d990ceccc0.jpg) | ![Mission1](https://user-images.githubusercontent.com/81986838/118861694-14bac600-b8dd-11eb-9553-63cf137ace49.jpg)
+![Personas-Mike](https://user-images.githubusercontent.com/81986838/118861908-55b2da80-b8dd-11eb-80f2-35828de7dd64.jpg)    ![Scenario1](https://user-images.githubusercontent.com/81986838/118862115-93affe80-b8dd-11eb-8f00-32d990ceccc0.jpg)    ![Mission1](https://user-images.githubusercontent.com/81986838/118861694-14bac600-b8dd-11eb-9553-63cf137ace49.jpg)
 
 
 In order to have a clean water for fishponds all the time, to guarantee the fish growth and prevent less fish death,
