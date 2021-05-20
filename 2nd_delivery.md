@@ -49,6 +49,10 @@
 	Some changes have been made . The updated version presented here.
 	
 	https://github.com/rishiraj09/iot_water_monitoring_sys/blob/main/Technology.md
+
+* Updated System Architecture:
+	![arch](https://user-images.githubusercontent.com/30042823/118987765-68f19480-b935-11eb-9a99-434f7cdbf37f.jpeg)
+
 	
 * Evaluation:
 	
