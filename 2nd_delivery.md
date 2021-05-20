@@ -20,30 +20,20 @@
    
 ### Justification For Comments:
 
-   1. Its better to calibrate the sensors in a periodic way  , every 1 month can be suitable!
+1. Its better to calibrate the sensors in a periodic way  , every 1 month can be suitable!
       
-	  **Temperature sensor:** First to simply check the sensor, we can measure something which we know its temperature,
+* **Temperature sensor:** First to simply check the sensor, we can measure something which we know its temperature,
 	  boiling water (100°C) and melting ice (0°C), then we can do the calibration if there is any difference between the measurement values.
       
-	  **Turbidity sensor:**  First we can measure clean water with zero turbidity which gives out 4.2 - 4.21 Volt, if the value is different from 4.2 , we can fix it by rotating the potentiometer in sensor available on the A & D converter circuit.
+* **Turbidity sensor:**  First we can measure clean water with zero turbidity which gives out 4.2 - 4.21 Volt, if the value is different from 4.2 , we can fix it by rotating the potentiometer in sensor available on the A & D converter circuit.
 	  
-	  **pH sensor:**  For this we can consider very pure water as reference which has a pH value between 6.9 and 7 , then if the sensor gives out aother value, we can fix it using the Trimmer on the sensor to adjust it.
-	  
-   
-    2. We are going to consider the **Artificial Pond** placed at remote location(not in the sea or river). They can be located in different places.
-                                                                                   
-	
-    3. We are using **Wifi Module (ESP-01S ESP8266) only for testing and presenting the protptype** but it will not be used in a actual product as it consumes a lot of energy. We can use LoRaWan or any low-power modules instead for the actual implementation.
-	   
-	4. Based on the 2nd comment, we are going to consider fishponds outside the sea/river, on land. Therfore using water pump and relay for fishponds on land , will be applicable.
-	
-	5. The Concept.md file containing the personas and scenarios are also updated.
-	
-	
-    6. We still do not know how to evaluate the performance of the product and the whole aspects of it. We are still working on it.
-	
-	
-	7. We do not conclude anything related to the security uptil now.
+* **pH sensor:**  For this we can consider very pure water as reference which has a pH value between 6.9 and 7 , then if the sensor gives out aother value, we can fix it using the Trimmer on the sensor to adjust it.
+2. We are going to consider the **Artificial Pond** placed at remote location(not in the sea or river). They can be located in different places.                         
+3. We are using **Wifi Module (ESP-01S ESP8266) only for testing and presenting the protptype** but it will not be used in a actual product as it consumes a lot of energy. We can use LoRaWan or any low-power modules instead for the actual implementation.
+4. Based on the 2nd comment, we are going to consider fishponds outside the sea/river, on land. Therfore using water pump and relay for fishponds on land , will be applicable.
+5. The Concept.md file containing the personas and scenarios are also updated.
+6. We still do not know how to evaluate the performance of the product and the whole aspects of it. We are still working on it.
+7. We do not conclude anything related to the security uptil now.
 	
 	
 ### Changes
