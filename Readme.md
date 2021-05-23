@@ -4,7 +4,6 @@
 
 * [Salam Rishiraj Singh](https://www.linkedin.com/in/rishiraj-salam-78ba32151/)
 * [Bahar Barzegar](https://www.linkedin.com/in/bahar-barzegar-74496357/)
-* [Ali Shahrzad](http://linkedin.com/in/ali-shahzad-t-09250770)
   
 
 ### Main Idea of Product - Brief  Description
