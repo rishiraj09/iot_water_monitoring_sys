@@ -1,6 +1,6 @@
-/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/analog_util/dac_util.o: \
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/analog_util/dac_util.o: \
  /home/rishirajsalam/RIOT/sys/analog_util/dac_util.c \
- /home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
+ /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h \
  /home/rishirajsalam/RIOT/sys/include/analog_util.h \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h \
@@ -60,7 +60,7 @@
  /home/rishirajsalam/RIOT/boards/common/stm32/include/cfg_i2c1_pb8_pb9.h \
  /home/rishirajsalam/RIOT/boards/common/stm32/include/cfg_timer_tim5.h
 
-/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
 
 /usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h:
 

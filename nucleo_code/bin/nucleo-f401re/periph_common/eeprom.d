@@ -1,6 +1,6 @@
-/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/periph_common/eeprom.o: \
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/periph_common/eeprom.o: \
  /home/rishirajsalam/RIOT/drivers/periph_common/eeprom.c \
- /home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
+ /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
  /usr/include/newlib/string.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/nano/newlib.h /usr/include/newlib/_newlib_version.h \
  /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h \
@@ -52,7 +52,7 @@
  /home/rishirajsalam/RIOT/core/include/macros/units.h \
  /home/rishirajsalam/RIOT/cpu/stm32/include/periph/f4/periph_cpu.h
 
-/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
 
 /usr/include/newlib/string.h:
 

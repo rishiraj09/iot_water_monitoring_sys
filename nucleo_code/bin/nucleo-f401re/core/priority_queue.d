@@ -1,6 +1,6 @@
-/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/core/priority_queue.o: \
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/core/priority_queue.o: \
  /home/rishirajsalam/RIOT/core/priority_queue.c \
- /home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
+ /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
  /usr/include/newlib/inttypes.h /usr/include/newlib/nano/newlib.h \
  /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h \
  /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h \
@@ -44,7 +44,7 @@
  /home/rishirajsalam/RIOT/core/include/thread_config.h \
  /home/rishirajsalam/RIOT/cpu/cortexm_common/include/thread_arch.h
 
-/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
 
 /usr/include/newlib/inttypes.h:
 

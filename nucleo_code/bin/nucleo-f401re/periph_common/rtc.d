@@ -1,6 +1,6 @@
-/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/periph_common/rtc.o: \
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/periph_common/rtc.o: \
  /home/rishirajsalam/RIOT/drivers/periph_common/rtc.c \
- /home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
+ /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h \
  /usr/include/newlib/stdlib.h /usr/include/newlib/machine/ieeefp.h \
  /usr/include/newlib/_ansi.h /usr/include/newlib/nano/newlib.h \
@@ -65,7 +65,7 @@
  /home/rishirajsalam/RIOT/boards/common/stm32/include/cfg_i2c1_pb8_pb9.h \
  /home/rishirajsalam/RIOT/boards/common/stm32/include/cfg_timer_tim5.h
 
-/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
 
 /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h:
 

@@ -1,6 +1,6 @@
-/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/core/panic.o: \
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/core/panic.o: \
  /home/rishirajsalam/RIOT/core/panic.c \
- /home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
+ /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
  /usr/include/newlib/string.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/nano/newlib.h /usr/include/newlib/_newlib_version.h \
  /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h \
@@ -57,7 +57,7 @@
  /home/rishirajsalam/RIOT/sys/include/pm_layered.h \
  /home/rishirajsalam/RIOT/core/include/log.h
 
-/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
 
 /usr/include/newlib/string.h:
 

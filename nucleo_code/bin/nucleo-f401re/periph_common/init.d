@@ -1,6 +1,6 @@
-/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/periph_common/init.o: \
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/periph_common/init.o: \
  /home/rishirajsalam/RIOT/drivers/periph_common/init.c \
- /home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
+ /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
  /home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h \
  /home/rishirajsalam/RIOT/cpu/cortexm_common/include/cpu.h \
@@ -48,18 +48,9 @@
  /home/rishirajsalam/RIOT/core/include/thread_config.h \
  /home/rishirajsalam/RIOT/cpu/cortexm_common/include/thread_arch.h \
  /home/rishirajsalam/RIOT/core/include/macros/units.h \
- /home/rishirajsalam/RIOT/cpu/stm32/include/periph/f4/periph_cpu.h \
- /home/rishirajsalam/RIOT/drivers/include/periph/i2c.h \
- /home/rishirajsalam/RIOT/boards/nucleo-f401re/include/periph_conf.h \
- /home/rishirajsalam/RIOT/cpu/stm32/include/clk/clk_conf.h \
- /home/rishirajsalam/RIOT/core/include/kernel_defines.h \
- /home/rishirajsalam/RIOT/cpu/stm32/include/clk/cfg_clock_common_fx_gx_mp1.h \
- /home/rishirajsalam/RIOT/cpu/stm32/include/clk/f2f4f7/cfg_clock_default.h \
- /home/rishirajsalam/RIOT/cpu/stm32/include/clk/f2f4f7/cfg_clock_default_84.h \
- /home/rishirajsalam/RIOT/boards/common/stm32/include/cfg_i2c1_pb8_pb9.h \
- /home/rishirajsalam/RIOT/boards/common/stm32/include/cfg_timer_tim5.h
+ /home/rishirajsalam/RIOT/cpu/stm32/include/periph/f4/periph_cpu.h
 
-/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
 
 /home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h:
 
@@ -174,21 +165,3 @@
 /home/rishirajsalam/RIOT/core/include/macros/units.h:
 
 /home/rishirajsalam/RIOT/cpu/stm32/include/periph/f4/periph_cpu.h:
-
-/home/rishirajsalam/RIOT/drivers/include/periph/i2c.h:
-
-/home/rishirajsalam/RIOT/boards/nucleo-f401re/include/periph_conf.h:
-
-/home/rishirajsalam/RIOT/cpu/stm32/include/clk/clk_conf.h:
-
-/home/rishirajsalam/RIOT/core/include/kernel_defines.h:
-
-/home/rishirajsalam/RIOT/cpu/stm32/include/clk/cfg_clock_common_fx_gx_mp1.h:
-
-/home/rishirajsalam/RIOT/cpu/stm32/include/clk/f2f4f7/cfg_clock_default.h:
-
-/home/rishirajsalam/RIOT/cpu/stm32/include/clk/f2f4f7/cfg_clock_default_84.h:
-
-/home/rishirajsalam/RIOT/boards/common/stm32/include/cfg_i2c1_pb8_pb9.h:
-
-/home/rishirajsalam/RIOT/boards/common/stm32/include/cfg_timer_tim5.h:

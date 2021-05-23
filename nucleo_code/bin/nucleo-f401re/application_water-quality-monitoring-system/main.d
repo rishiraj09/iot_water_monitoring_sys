@@ -1,6 +1,6 @@
-/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/application_water-quality-monitoring-system/main.o: \
- /home/rishirajsalam/college_task/projects/iot_test/nucleo_code/main.c \
- /home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/application_water-quality-monitoring-system/main.o: \
+ /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/main.c \
+ /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
  /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/nano/newlib.h /usr/include/newlib/_newlib_version.h \
  /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h \
@@ -18,9 +18,9 @@
  /usr/include/newlib/sys/types.h /usr/include/newlib/sys/_stdint.h \
  /usr/include/newlib/sys/_pthreadtypes.h \
  /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h \
- /home/rishirajsalam/RIOT/boards/nucleo-f401re/include/periph_conf.h \
- /home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h \
- /usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h \
+ /usr/include/newlib/inttypes.h /usr/include/newlib/sys/_intsup.h \
+ /home/rishirajsalam/RIOT/boards/common/nucleo64/include/board.h \
+ /home/rishirajsalam/RIOT/boards/common/nucleo/include/board_nucleo.h \
  /home/rishirajsalam/RIOT/cpu/cortexm_common/include/cpu.h \
  /home/rishirajsalam/RIOT/core/include/irq.h \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h \
@@ -37,7 +37,6 @@
  /home/rishirajsalam/RIOT/cpu/stm32/include/irqs/f4/irqs.h \
  /home/rishirajsalam/RIOT/cpu/cortexm_common/include/irq_arch.h \
  /home/rishirajsalam/RIOT/core/include/sched.h \
- /usr/include/newlib/inttypes.h /usr/include/newlib/sys/_intsup.h \
  /home/rishirajsalam/RIOT/core/include/native_sched.h \
  /home/rishirajsalam/RIOT/core/include/clist.h \
  /home/rishirajsalam/RIOT/core/include/list.h \
@@ -48,6 +47,9 @@
  /home/rishirajsalam/RIOT/core/include/sched.h \
  /home/rishirajsalam/RIOT/core/include/thread_config.h \
  /home/rishirajsalam/RIOT/cpu/cortexm_common/include/thread_arch.h \
+ /home/rishirajsalam/RIOT/boards/nucleo-f401re/include/periph_conf.h \
+ /home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h \
  /home/rishirajsalam/RIOT/core/include/macros/units.h \
  /home/rishirajsalam/RIOT/cpu/stm32/include/periph/f4/periph_cpu.h \
  /home/rishirajsalam/RIOT/cpu/stm32/include/clk/clk_conf.h \
@@ -57,7 +59,19 @@
  /home/rishirajsalam/RIOT/cpu/stm32/include/clk/f2f4f7/cfg_clock_default_84.h \
  /home/rishirajsalam/RIOT/boards/common/stm32/include/cfg_i2c1_pb8_pb9.h \
  /home/rishirajsalam/RIOT/boards/common/stm32/include/cfg_timer_tim5.h \
- /home/rishirajsalam/RIOT/drivers/include/periph/i2c.h \
+ /home/rishirajsalam/RIOT/boards/common/nucleo64/include/arduino_pinmap.h \
+ /home/rishirajsalam/RIOT/drivers/include/periph/gpio.h \
+ /home/rishirajsalam/RIOT/drivers/include/periph/adc.h \
+ /home/rishirajsalam/RIOT/drivers/include/motor_driver.h \
+ /home/rishirajsalam/RIOT/drivers/include/periph/pwm.h \
+ /home/rishirajsalam/RIOT/drivers/include/periph/gpio.h \
+ /home/rishirajsalam/RIOT/drivers/include/ds18.h \
+ /home/rishirajsalam/RIOT/drivers/ds18/include/ds18_params.h \
+ /home/rishirajsalam/RIOT/sys/include/saul_reg.h \
+ /home/rishirajsalam/RIOT/drivers/include/saul.h \
+ /usr/include/newlib/errno.h /usr/include/newlib/sys/errno.h \
+ /home/rishirajsalam/RIOT/sys/include/phydat.h \
+ /home/rishirajsalam/RIOT/sys/include/phydat.h \
  /home/rishirajsalam/RIOT/sys/include/xtimer.h \
  /home/rishirajsalam/RIOT/sys/include/timex.h \
  /home/rishirajsalam/RIOT/core/include/msg.h \
@@ -67,20 +81,13 @@
  /home/rishirajsalam/RIOT/core/include/rmutex.h \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdatomic.h \
  /home/rishirajsalam/RIOT/core/include/mutex.h \
- /home/rishirajsalam/RIOT/boards/common/nucleo64/include/board.h \
- /home/rishirajsalam/RIOT/boards/common/nucleo/include/board_nucleo.h \
- /home/rishirajsalam/RIOT/boards/common/nucleo64/include/arduino_pinmap.h \
- /home/rishirajsalam/RIOT/drivers/include/periph/gpio.h \
- /home/rishirajsalam/RIOT/drivers/include/periph/adc.h \
- /home/rishirajsalam/RIOT/drivers/include/motor_driver.h \
- /home/rishirajsalam/RIOT/drivers/include/periph/pwm.h \
- /home/rishirajsalam/RIOT/drivers/include/periph/gpio.h \
  /home/rishirajsalam/RIOT/sys/include/xtimer/tick_conversion.h \
  /home/rishirajsalam/RIOT/sys/include/div.h \
  /home/rishirajsalam/RIOT/sys/include/xtimer/implementation.h \
- /home/rishirajsalam/RIOT/drivers/include/periph/timer.h
+ /home/rishirajsalam/RIOT/drivers/include/periph/timer.h \
+ /home/rishirajsalam/RIOT/sys/include/analog_util.h
 
-/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
 
 /usr/include/newlib/stdio.h:
 
@@ -132,11 +139,13 @@
 
 /usr/include/newlib/sys/stdio.h:
 
-/home/rishirajsalam/RIOT/boards/nucleo-f401re/include/periph_conf.h:
+/usr/include/newlib/inttypes.h:
 
-/home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h:
+/usr/include/newlib/sys/_intsup.h:
 
-/usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h:
+/home/rishirajsalam/RIOT/boards/common/nucleo64/include/board.h:
+
+/home/rishirajsalam/RIOT/boards/common/nucleo/include/board_nucleo.h:
 
 /home/rishirajsalam/RIOT/cpu/cortexm_common/include/cpu.h:
 
@@ -170,10 +179,6 @@
 
 /home/rishirajsalam/RIOT/core/include/sched.h:
 
-/usr/include/newlib/inttypes.h:
-
-/usr/include/newlib/sys/_intsup.h:
-
 /home/rishirajsalam/RIOT/core/include/native_sched.h:
 
 /home/rishirajsalam/RIOT/core/include/clist.h:
@@ -194,6 +199,12 @@
 
 /home/rishirajsalam/RIOT/cpu/cortexm_common/include/thread_arch.h:
 
+/home/rishirajsalam/RIOT/boards/nucleo-f401re/include/periph_conf.h:
+
+/home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h:
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h:
+
 /home/rishirajsalam/RIOT/core/include/macros/units.h:
 
 /home/rishirajsalam/RIOT/cpu/stm32/include/periph/f4/periph_cpu.h:
@@ -212,7 +223,33 @@
 
 /home/rishirajsalam/RIOT/boards/common/stm32/include/cfg_timer_tim5.h:
 
-/home/rishirajsalam/RIOT/drivers/include/periph/i2c.h:
+/home/rishirajsalam/RIOT/boards/common/nucleo64/include/arduino_pinmap.h:
+
+/home/rishirajsalam/RIOT/drivers/include/periph/gpio.h:
+
+/home/rishirajsalam/RIOT/drivers/include/periph/adc.h:
+
+/home/rishirajsalam/RIOT/drivers/include/motor_driver.h:
+
+/home/rishirajsalam/RIOT/drivers/include/periph/pwm.h:
+
+/home/rishirajsalam/RIOT/drivers/include/periph/gpio.h:
+
+/home/rishirajsalam/RIOT/drivers/include/ds18.h:
+
+/home/rishirajsalam/RIOT/drivers/ds18/include/ds18_params.h:
+
+/home/rishirajsalam/RIOT/sys/include/saul_reg.h:
+
+/home/rishirajsalam/RIOT/drivers/include/saul.h:
+
+/usr/include/newlib/errno.h:
+
+/usr/include/newlib/sys/errno.h:
+
+/home/rishirajsalam/RIOT/sys/include/phydat.h:
+
+/home/rishirajsalam/RIOT/sys/include/phydat.h:
 
 /home/rishirajsalam/RIOT/sys/include/xtimer.h:
 
@@ -232,22 +269,6 @@
 
 /home/rishirajsalam/RIOT/core/include/mutex.h:
 
-/home/rishirajsalam/RIOT/boards/common/nucleo64/include/board.h:
-
-/home/rishirajsalam/RIOT/boards/common/nucleo/include/board_nucleo.h:
-
-/home/rishirajsalam/RIOT/boards/common/nucleo64/include/arduino_pinmap.h:
-
-/home/rishirajsalam/RIOT/drivers/include/periph/gpio.h:
-
-/home/rishirajsalam/RIOT/drivers/include/periph/adc.h:
-
-/home/rishirajsalam/RIOT/drivers/include/motor_driver.h:
-
-/home/rishirajsalam/RIOT/drivers/include/periph/pwm.h:
-
-/home/rishirajsalam/RIOT/drivers/include/periph/gpio.h:
-
 /home/rishirajsalam/RIOT/sys/include/xtimer/tick_conversion.h:
 
 /home/rishirajsalam/RIOT/sys/include/div.h:
@@ -255,3 +276,5 @@
 /home/rishirajsalam/RIOT/sys/include/xtimer/implementation.h:
 
 /home/rishirajsalam/RIOT/drivers/include/periph/timer.h:
+
+/home/rishirajsalam/RIOT/sys/include/analog_util.h:

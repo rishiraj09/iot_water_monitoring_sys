@@ -1,24 +1,31 @@
-/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/periph_common/gpio_util.o: \
- /home/rishirajsalam/RIOT/drivers/periph_common/gpio_util.c \
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/ds18/ds18_saul.o: \
+ /home/rishirajsalam/RIOT/drivers/ds18/ds18_saul.c \
  /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
- /home/rishirajsalam/RIOT/drivers/include/periph/gpio.h \
- /usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h \
- /home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h \
- /home/rishirajsalam/RIOT/cpu/cortexm_common/include/cpu.h \
- /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h \
+ /usr/include/newlib/string.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/nano/newlib.h /usr/include/newlib/_newlib_version.h \
  /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h \
- /usr/include/newlib/sys/features.h /usr/include/newlib/sys/cdefs.h \
- /usr/include/newlib/machine/_default_types.h \
+ /usr/include/newlib/sys/features.h /usr/include/newlib/sys/reent.h \
+ /usr/include/newlib/_ansi.h \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h \
- /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h \
- /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h \
+ /usr/include/newlib/machine/_default_types.h \
  /usr/include/newlib/sys/lock.h \
  /home/rishirajsalam/RIOT/core/include/assert.h \
  /home/rishirajsalam/RIOT/core/include/panic.h \
  /home/rishirajsalam/RIOT/core/include/kernel_defines.h \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h \
+ /usr/include/newlib/sys/cdefs.h /usr/include/newlib/sys/string.h \
+ /home/rishirajsalam/RIOT/drivers/include/saul.h \
+ /usr/include/newlib/errno.h /usr/include/newlib/sys/errno.h \
+ /home/rishirajsalam/RIOT/sys/include/phydat.h \
+ /home/rishirajsalam/RIOT/core/include/kernel_defines.h \
+ /home/rishirajsalam/RIOT/drivers/include/ds18.h \
+ /home/rishirajsalam/RIOT/drivers/include/periph/gpio.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h \
+ /home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h \
+ /home/rishirajsalam/RIOT/cpu/cortexm_common/include/cpu.h \
+ /usr/include/newlib/stdio.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h \
  /usr/include/newlib/sys/types.h /usr/include/newlib/sys/_stdint.h \
  /usr/include/newlib/sys/_pthreadtypes.h \
  /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h \
@@ -52,7 +59,6 @@
  /home/rishirajsalam/RIOT/cpu/stm32/include/periph/f4/periph_cpu.h \
  /home/rishirajsalam/RIOT/boards/nucleo-f401re/include/periph_conf.h \
  /home/rishirajsalam/RIOT/cpu/stm32/include/clk/clk_conf.h \
- /home/rishirajsalam/RIOT/core/include/kernel_defines.h \
  /home/rishirajsalam/RIOT/cpu/stm32/include/clk/cfg_clock_common_fx_gx_mp1.h \
  /home/rishirajsalam/RIOT/cpu/stm32/include/clk/f2f4f7/cfg_clock_default.h \
  /home/rishirajsalam/RIOT/cpu/stm32/include/clk/f2f4f7/cfg_clock_default_84.h \
@@ -61,15 +67,7 @@
 
 /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
 
-/home/rishirajsalam/RIOT/drivers/include/periph/gpio.h:
-
-/usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h:
-
-/home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h:
-
-/home/rishirajsalam/RIOT/cpu/cortexm_common/include/cpu.h:
-
-/usr/include/newlib/stdio.h:
+/usr/include/newlib/string.h:
 
 /usr/include/newlib/_ansi.h:
 
@@ -83,21 +81,17 @@
 
 /usr/include/newlib/sys/features.h:
 
-/usr/include/newlib/sys/cdefs.h:
-
-/usr/include/newlib/machine/_default_types.h:
-
-/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h:
-
-/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h:
-
 /usr/include/newlib/sys/reent.h:
 
 /usr/include/newlib/_ansi.h:
 
+/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h:
+
 /usr/include/newlib/sys/_types.h:
 
 /usr/include/newlib/machine/_types.h:
+
+/usr/include/newlib/machine/_default_types.h:
 
 /usr/include/newlib/sys/lock.h:
 
@@ -108,6 +102,34 @@
 /home/rishirajsalam/RIOT/core/include/kernel_defines.h:
 
 /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h:
+
+/usr/include/newlib/sys/cdefs.h:
+
+/usr/include/newlib/sys/string.h:
+
+/home/rishirajsalam/RIOT/drivers/include/saul.h:
+
+/usr/include/newlib/errno.h:
+
+/usr/include/newlib/sys/errno.h:
+
+/home/rishirajsalam/RIOT/sys/include/phydat.h:
+
+/home/rishirajsalam/RIOT/core/include/kernel_defines.h:
+
+/home/rishirajsalam/RIOT/drivers/include/ds18.h:
+
+/home/rishirajsalam/RIOT/drivers/include/periph/gpio.h:
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h:
+
+/home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h:
+
+/home/rishirajsalam/RIOT/cpu/cortexm_common/include/cpu.h:
+
+/usr/include/newlib/stdio.h:
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdarg.h:
 
 /usr/include/newlib/sys/types.h:
 
@@ -180,8 +202,6 @@
 /home/rishirajsalam/RIOT/boards/nucleo-f401re/include/periph_conf.h:
 
 /home/rishirajsalam/RIOT/cpu/stm32/include/clk/clk_conf.h:
-
-/home/rishirajsalam/RIOT/core/include/kernel_defines.h:
 
 /home/rishirajsalam/RIOT/cpu/stm32/include/clk/cfg_clock_common_fx_gx_mp1.h:
 

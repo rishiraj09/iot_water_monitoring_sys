@@ -1,9 +1,6 @@
-/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/periph_common/gpio_util.o: \
- /home/rishirajsalam/RIOT/drivers/periph_common/gpio_util.c \
+/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/periph/adc_f4_f7.o: \
+ /home/rishirajsalam/RIOT/cpu/stm32/periph/adc_f4_f7.c \
  /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
- /home/rishirajsalam/RIOT/drivers/include/periph/gpio.h \
- /usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h \
- /home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h \
  /home/rishirajsalam/RIOT/cpu/cortexm_common/include/cpu.h \
  /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/nano/newlib.h /usr/include/newlib/_newlib_version.h \
@@ -48,6 +45,12 @@
  /home/rishirajsalam/RIOT/core/include/sched.h \
  /home/rishirajsalam/RIOT/core/include/thread_config.h \
  /home/rishirajsalam/RIOT/cpu/cortexm_common/include/thread_arch.h \
+ /home/rishirajsalam/RIOT/core/include/mutex.h \
+ /home/rishirajsalam/RIOT/core/include/thread.h \
+ /home/rishirajsalam/RIOT/core/include/irq.h \
+ /home/rishirajsalam/RIOT/drivers/include/periph/adc.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h \
+ /home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h \
  /home/rishirajsalam/RIOT/core/include/macros/units.h \
  /home/rishirajsalam/RIOT/cpu/stm32/include/periph/f4/periph_cpu.h \
  /home/rishirajsalam/RIOT/boards/nucleo-f401re/include/periph_conf.h \
@@ -60,12 +63,6 @@
  /home/rishirajsalam/RIOT/boards/common/stm32/include/cfg_timer_tim5.h
 
 /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
-
-/home/rishirajsalam/RIOT/drivers/include/periph/gpio.h:
-
-/usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h:
-
-/home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h:
 
 /home/rishirajsalam/RIOT/cpu/cortexm_common/include/cpu.h:
 
@@ -172,6 +169,18 @@
 /home/rishirajsalam/RIOT/core/include/thread_config.h:
 
 /home/rishirajsalam/RIOT/cpu/cortexm_common/include/thread_arch.h:
+
+/home/rishirajsalam/RIOT/core/include/mutex.h:
+
+/home/rishirajsalam/RIOT/core/include/thread.h:
+
+/home/rishirajsalam/RIOT/core/include/irq.h:
+
+/home/rishirajsalam/RIOT/drivers/include/periph/adc.h:
+
+/usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h:
+
+/home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h:
 
 /home/rishirajsalam/RIOT/core/include/macros/units.h:
 
