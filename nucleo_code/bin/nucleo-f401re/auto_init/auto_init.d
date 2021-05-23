@@ -1,6 +1,6 @@
-/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/auto_init/auto_init.o: \
+/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/auto_init/auto_init.o: \
  /home/rishirajsalam/RIOT/sys/auto_init/auto_init.c \
- /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
+ /home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h \
  /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/nano/newlib.h /usr/include/newlib/_newlib_version.h \
@@ -22,7 +22,7 @@
  /home/rishirajsalam/RIOT/core/include/kernel_defines.h \
  /home/rishirajsalam/RIOT/core/include/log.h
 
-/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
+/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
 
 /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h:
 

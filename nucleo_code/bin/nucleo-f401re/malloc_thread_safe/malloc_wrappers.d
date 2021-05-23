@@ -1,6 +1,6 @@
-/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/malloc_thread_safe/malloc_wrappers.o: \
+/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/malloc_thread_safe/malloc_wrappers.o: \
  /home/rishirajsalam/RIOT/sys/malloc_thread_safe/malloc_wrappers.c \
- /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
+ /home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
  /usr/include/newlib/string.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/nano/newlib.h /usr/include/newlib/_newlib_version.h \
  /usr/include/newlib/sys/config.h /usr/include/newlib/machine/ieeefp.h \
@@ -43,7 +43,7 @@
  /home/rishirajsalam/RIOT/cpu/cortexm_common/include/thread_arch.h \
  /home/rishirajsalam/RIOT/core/include/irq.h
 
-/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
+/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
 
 /usr/include/newlib/string.h:
 

@@ -1,6 +1,6 @@
-/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/cortexm_common_periph/pm.o: \
+/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/cortexm_common_periph/pm.o: \
  /home/rishirajsalam/RIOT/cpu/cortexm_common/periph/pm.c \
- /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
+ /home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
  /home/rishirajsalam/RIOT/cpu/cortexm_common/include/cpu.h \
  /usr/include/newlib/stdio.h /usr/include/newlib/_ansi.h \
  /usr/include/newlib/nano/newlib.h /usr/include/newlib/_newlib_version.h \
@@ -52,7 +52,7 @@
  /home/rishirajsalam/RIOT/cpu/stm32/include/periph/f4/periph_cpu.h \
  /home/rishirajsalam/RIOT/sys/include/pm_layered.h
 
-/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
+/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
 
 /home/rishirajsalam/RIOT/cpu/cortexm_common/include/cpu.h:
 

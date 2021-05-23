@@ -1,6 +1,6 @@
-/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/cpu/cpu_common.o: \
+/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/cpu/cpu_common.o: \
  /home/rishirajsalam/RIOT/cpu/stm32/cpu_common.c \
- /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
+ /home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
  /home/rishirajsalam/RIOT/boards/nucleo-f401re/include/periph_conf.h \
  /home/rishirajsalam/RIOT/cpu/stm32/include/periph_cpu.h \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include-fixed/limits.h \
@@ -60,7 +60,7 @@
  /home/rishirajsalam/RIOT/core/include/debug.h \
  /home/rishirajsalam/RIOT/core/include/thread.h
 
-/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
+/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
 
 /home/rishirajsalam/RIOT/boards/nucleo-f401re/include/periph_conf.h:
 

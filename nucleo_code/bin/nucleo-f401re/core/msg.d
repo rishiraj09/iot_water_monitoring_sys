@@ -1,6 +1,6 @@
-/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/core/msg.o: \
+/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/core/msg.o: \
  /home/rishirajsalam/RIOT/core/msg.c \
- /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
+ /home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
  /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h \
  /usr/include/newlib/inttypes.h /usr/include/newlib/nano/newlib.h \
  /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h \
@@ -51,7 +51,7 @@
  /usr/include/newlib/machine/types.h /usr/include/newlib/sys/stdio.h \
  /home/rishirajsalam/RIOT/core/include/thread.h
 
-/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
+/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
 
 /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h:
 

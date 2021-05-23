@@ -1,6 +1,6 @@
-/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/boards_common_nucleo/board_common_nucleo_init.o: \
+/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/boards_common_nucleo/board_common_nucleo_init.o: \
  /home/rishirajsalam/RIOT/boards/common/nucleo/board_common_nucleo_init.c \
- /home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
+ /home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h \
  /home/rishirajsalam/RIOT/boards/common/nucleo64/include/board.h \
  /home/rishirajsalam/RIOT/boards/common/nucleo/include/board_nucleo.h \
  /home/rishirajsalam/RIOT/cpu/cortexm_common/include/cpu.h \
@@ -66,7 +66,7 @@
  /home/rishirajsalam/RIOT/drivers/include/periph/pwm.h \
  /home/rishirajsalam/RIOT/drivers/include/periph/gpio.h
 
-/home/rishirajsalam/college_task/projects/iot_water_monitoring_sys/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
+/home/rishirajsalam/college_task/projects/iot_test/nucleo_code/bin/nucleo-f401re/riotbuild/riotbuild.h:
 
 /home/rishirajsalam/RIOT/boards/common/nucleo64/include/board.h:
 
