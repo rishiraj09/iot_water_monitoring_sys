@@ -16,8 +16,10 @@ QUIET ?= 1
 # modules to include
 USEMODULE += xtimer
 USEMODULE += analog_util
-USEMODULE += periph_gpio
-FEATURES_REQUIRED += periph_i2c
+USEMODULE += printf_float
+USEMODULE += ds18
+
+FEATURES_REQUIRED += periph_adc
 
 
 include $(RIOTBASE)/Makefile.include
