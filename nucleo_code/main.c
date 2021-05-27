@@ -12,7 +12,13 @@
 
 // define global variables
 #define SAMPLING_PERIOD 			0.100
-#define ADC_IN_USE                  ADC_LINE(1)
+
+// adc connection line for ph scale
+#define ADC_PH                  ADC_LINE(1)
+
+// adc connection line for turbidity
+#define ADC_TD                  ADC_LINE(2)
+
 #define ADC_RES                     ADC_RES_12BIT
 
 #define DELAY                       (100LU * US_PER_MS) /* 100 ms */
@@ -40,26 +46,43 @@ int main(void)
         return 1;
     }
 
-	/* initialize the ADC line */
-    if (adc_init(ADC_IN_USE) < 0) {
-        printf("Initialization of ADC_LINE(%u) failed\n", ADC_IN_USE);
+	/* initialize the ADC line for ph */
+    if (adc_init(ADC_PH) < 0) {
+        printf("Initialization of ADC_LINE(%u) failed\n", ADC_PH);
         return 1;
     }
     else {
-        printf("Successfully initialized ADC_LINE(%u)\n", ADC_IN_USE);
+        printf("Successfully initialized ADC_LINE(%u)\n", ADC_PH);
     }
+
+/* initialize the ADC line for turbidity */
+    // if (adc_init(ADC_TD) < 2) {
+    //     printf("Initialization of ADC_LINE(%u) failed\n", ADC_IN_USE);
+    //     return 1;
+    // }
+    // else {
+    //     printf("Successfully initialized ADC_LINE(%u)\n", ADC_IN_USE);
+    // }
+
+
+
 
 
 	xtimer_ticks32_t last = xtimer_now();
-    int sensorValue = 0;
+    int sensorValue1 = 0;
+    int sensorValue2 = 0;
     float phValue = 0;
+    float turbidityValue = 0;
 
     printf("\n+--------Starting Measurements--------+\n");
     while (1) {
 
 		int16_t temperature;
-		sensorValue = adc_sample(ADC_IN_USE, ADC_RES);
-        phValue = adc_util_mapf(sensorValue, ADC_RES, 0, 14);
+		sensorValue1 = adc_sample(ADC_PH, ADC_RES);
+		sensorValue2 = adc_sample(ADC_TD, ADC_RES);
+
+        phValue = adc_util_mapf(sensorValue1, ADC_RES, 0, 14);
+        turbidityValue = adc_util_mapf(sensorValue2, ADC_RES, 0, 5);
 
 
 		// ########## Temperature Data Section ##############
@@ -93,6 +116,8 @@ int main(void)
         else {
             // printf("ph Reading: %f\n",phValue);
             printf("ADC_LINE(%u): pH Reading: %f\n", ADC_IN_USE, phValue);
+            printf("ADC_LINE(%u): Turbidity Reading: %f\n", ADC_IN_USE, turbidityValue);
+
         }
 
         xtimer_periodic_wakeup(&last, DELAY);
