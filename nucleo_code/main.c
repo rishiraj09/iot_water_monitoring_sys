@@ -1,128 +1,414 @@
 #include <stdio.h>
-#include <inttypes.h>
-
-#include "board.h"
+#include <string.h>
+#include <stdlib.h>
+#include <time.h>
+#include "shell.h"
+#include "msg.h"
 #include "ds18.h"
 #include "ds18_params.h"
-#include "xtimer.h"
-#include "thread.h"
 #include "periph/adc.h"
 #include "periph/gpio.h"
 #include "analog_util.h"
+#include "net/gnrc.h"
+#include "net/netif.h"
+#include "net/ipv6/addr.h"
+#include "net/gnrc/ipv6.h"
+#include "net/gnrc/netif.h"
+#include "net/gnrc/netif/ipv6.h"
+#include "net/emcute.h"
 
-// define global variables
-#define SAMPLING_PERIOD 			0.100
+#ifndef EMCUTE_ID
+#define EMCUTE_ID           ("gertrud")
+#endif
+#define EMCUTE_PRIO         (THREAD_PRIORITY_MAIN - 1)
 
-// adc connection line for ph scale
-#define ADC_PH                  ADC_LINE(1)
+#define ADC_RES              ADC_RES_12BIT
+#define DELAY               (5000LU * US_PER_MS) /* 5000 ms */
+#define _IPV6_DEFAULT_PREFIX_LEN        (64U)
 
-// adc connection line for turbidity
-#define ADC_TD                  ADC_LINE(2)
+#define NUMOFSUBS           (16U)
+#define TOPIC_MAXLEN        (64U)
 
-#define ADC_RES                     ADC_RES_12BIT
 
-#define DELAY                       (100LU * US_PER_MS) /* 100 ms */
+static char stack[THREAD_STACKSIZE_DEFAULT];
+static emcute_sub_t subscriptions[NUMOFSUBS];
+static char topics[NUMOFSUBS][TOPIC_MAXLEN];
+static msg_t queue[8];
+ds18_t dev;
 
-int main(void)
+static uint8_t get_prefix_len(char *addr)
 {
-    ds18_t dev;
-    int result;
+    int prefix_len = ipv6_addr_split_int(addr, '/', _IPV6_DEFAULT_PREFIX_LEN);
 
-    puts("RIOT Water Quality Measuring Application\n"
-		 "-Measure Teperature of the water with DS18B20 Temperature sensor\n"
-		 "-Measure pH Scale of the water with Analog pH Sensor\n"
-		 "-Measure Turbidity of the water with Analog Turbidity Sensor\n"
-		 "-All the sensors are connected to the Analog input of STM32 Nucleo-64 board\n"
-		 "The sensor is sampled through the ADC lines once every 100ms\n"
-        "with a 12-bit resolution and print the sampled results to STDIO\n");
+    if (prefix_len < 1) {
+        prefix_len = _IPV6_DEFAULT_PREFIX_LEN;
+    }
 
-	
-	
+    return prefix_len;
+}
 
-    printf("+------------Initializing------------+\n");
-    result = ds18_init(&dev, &ds18_params[0]);
-    if (result == DS18_ERROR) {
-        puts("[Error] The sensor pin could not be initialized");
+static int netif_add(char *iface_name,char *addr_str)
+{
+
+    netif_t *iface = netif_get_by_name(iface_name);
+        if (!iface) {
+            puts("error: invalid interface given");
+            return 1;
+        }
+    enum {
+        _UNICAST = 0,
+        _ANYCAST
+    } type = _UNICAST;
+    
+    ipv6_addr_t addr;
+    uint16_t flags = GNRC_NETIF_IPV6_ADDRS_FLAGS_STATE_VALID;
+    uint8_t prefix_len;
+
+
+    prefix_len = get_prefix_len(addr_str);
+
+    if (ipv6_addr_from_str(&addr, addr_str) == NULL) {
+        puts("error: unable to parse IPv6 address.");
         return 1;
     }
 
-	/* initialize the ADC line for ph */
-    if (adc_init(ADC_PH) < 0) {
-        printf("Initialization of ADC_LINE(%u) failed\n", ADC_PH);
-        return 1;
+    if (ipv6_addr_is_multicast(&addr)) {
+        if (netif_set_opt(iface, NETOPT_IPV6_GROUP, 0, &addr,
+                          sizeof(addr)) < 0) {
+            printf("error: unable to join IPv6 multicast group\n");
+            return 1;
+        }
     }
     else {
-        printf("Successfully initialized ADC_LINE(%u)\n", ADC_PH);
+        if (type == _ANYCAST) {
+            flags |= GNRC_NETIF_IPV6_ADDRS_FLAGS_ANYCAST;
+        }
+        flags |= (prefix_len << 8U);
+        if (netif_set_opt(iface, NETOPT_IPV6_ADDR, flags, &addr,
+                          sizeof(addr)) < 0) {
+            printf("error: unable to add IPv6 address\n");
+            return 1;
+        }
     }
 
-/* initialize the ADC line for turbidity */
-    // if (adc_init(ADC_TD) < 2) {
-    //     printf("Initialization of ADC_LINE(%u) failed\n", ADC_IN_USE);
-    //     return 1;
-    // }
-    // else {
-    //     printf("Successfully initialized ADC_LINE(%u)\n", ADC_IN_USE);
-    // }
+    printf("success: added %s/%d to interface ", addr_str, prefix_len);
+    printf("\n");
 
+    return 0;
 
+}
 
+static void *emcute_thread(void *arg)
+{
+    (void)arg;
+    emcute_run(CONFIG_EMCUTE_DEFAULT_PORT, EMCUTE_ID);
+    return NULL;    /* should never be reached */
+}
 
+static void on_pub(const emcute_topic_t *topic, void *data, size_t len)
+{
+    char *in = (char *)data;
 
-	xtimer_ticks32_t last = xtimer_now();
-    int sensorValue1 = 0;
-    int sensorValue2 = 0;
-    float phValue = 0;
-    float turbidityValue = 0;
+    printf("### got publication for topic '%s' [%i] ###\n",
+           topic->name, (int)topic->id);
+    for (size_t i = 0; i < len; i++) {
+        printf("%c", in[i]);
+    }
+    puts("");
+}
 
-    printf("\n+--------Starting Measurements--------+\n");
+static unsigned get_qos(const char *str)
+{
+    int qos = atoi(str);
+    switch (qos) {
+        case 1:     return EMCUTE_QOS_1;
+        case 2:     return EMCUTE_QOS_2;
+        default:    return EMCUTE_QOS_0;
+    }
+}
+
+static int cmd_con(int argc, char **argv)
+{
+    sock_udp_ep_t gw = { .family = AF_INET6, .port = CONFIG_EMCUTE_DEFAULT_PORT };
+    char *topic = NULL;
+    char *message = NULL;
+    size_t len = 0;
+
+    if (argc < 2) {
+        printf("usage: %s <ipv6 addr> [port] [<will topic> <will message>]\n",
+                argv[0]);
+        return 1;
+    }
+
+    /* parse address */
+    if (ipv6_addr_from_str((ipv6_addr_t *)&gw.addr.ipv6, argv[1]) == NULL) {
+        printf("error parsing IPv6 address\n");
+        return 1;
+    }
+
+    if (argc >= 3) {
+        gw.port = atoi(argv[2]);
+    }
+    if (argc >= 5) {
+        topic = argv[3];
+        message = argv[4];
+        len = strlen(message);
+    }
+
+    if (emcute_con(&gw, true, topic, message, len, 0) != EMCUTE_OK) {
+        printf("error: unable to connect to [%s]:%i\n", argv[1], (int)gw.port);
+        return 1;
+    }
+    printf("Successfully connected to gateway at [%s]:%i\n",
+           argv[1], (int)gw.port);
+
+    return 0;
+}
+
+static int cmd_discon(int argc, char **argv)
+{
+    (void)argc;
+    (void)argv;
+
+    int res = emcute_discon();
+    if (res == EMCUTE_NOGW) {
+        puts("error: not connected to any broker");
+        return 1;
+    }
+    else if (res != EMCUTE_OK) {
+        puts("error: unable to disconnect");
+        return 1;
+    }
+    puts("Disconnect successful");
+    return 0;
+}
+
+static int cmd_pub(int argc, char **argv)
+{
+    emcute_topic_t topic;
+    unsigned flags = EMCUTE_QOS_0;
+
+    if (argc < 2) {
+        printf("usage: %s <topic name>  [QoS level]\n", argv[0]);
+        return 1;
+    }
+
+    /* parse QoS level */
+    if (argc >= 4) {
+        flags |= get_qos(argv[3]);
+    }
+
+    printf("pub with topic: %s and name %s and flags 0x%02x\n", argv[1], argv[2], (int)flags);
+
+    /* step 1: get topic id */
+    topic.name = argv[1];
+    if (emcute_reg(&topic) != EMCUTE_OK) {
+        puts("error: unable to obtain topic ID");
+        return 1;
+    }
+
+    /*json structure*/
+    char json[128];  
+
+    /*Sensor-Actuator Parameters Initialization*/
+	float sample_pH = 0;
+    float pH = 0;
+	float sample_turbidity = 0;
+    float turbidity = 0;
+
+	// Get date and time 
+	char   todayDateStr[100];
+    time_t rawtime;
+    struct tm *timeinfo;
+    time ( &rawtime );
+    timeinfo = localtime ( &rawtime );
+    strftime(todayDateStr, strlen("DD-MMM-YYYY HH:MM")+1,"%d-%b-%Y %H:%M",timeinfo);
+    
+/* Sample continously the ADC line and publish sensor data on given topic*/
     while (1) {
-
+		
+		xtimer_ticks32_t last = xtimer_now(); 
 		int16_t temperature;
-		sensorValue1 = adc_sample(ADC_PH, ADC_RES);
-		sensorValue2 = adc_sample(ADC_TD, ADC_RES);
-
-        phValue = adc_util_mapf(sensorValue1, ADC_RES, 0, 14);
-        turbidityValue = adc_util_mapf(sensorValue2, ADC_RES, 0, 5);
-
-
-		// ########## Temperature Data Section ##############
-        
-
-        /* Get temperature in centidegrees celsius */
+    
+	// Takes the sample sensor data
+        //Temperature
         if (ds18_get_temperature(&dev, &temperature) == DS18_OK) {
-            bool negative = (temperature < 0);
+			bool negative = (temperature < 0);
             if (negative) {
                 temperature = -temperature;
             }
-
-            printf("Temperature [ºC]: %c%d.%02d"
-                   "\n+-------------------------------------+\n",
-                   negative ? '-': ' ',
-                   temperature / 100,
-                   temperature % 100);
         }
         else {
             puts("[Error] Could not read temperature");
         }
 
-        xtimer_sleep(SAMPLING_PERIOD);
+		// PH
+		sample_pH = adc_sample(ADC_LINE(1), ADC_RES);
+        pH = adc_util_map(sample_pH, ADC_RES, 0, 14);
 		
-
-		// ########### pH Data Section ##############
-		if (sensorValue < 0) {
-            printf("ADC_LINE(%u): selected resolution not applicable\n",
-                   ADC_IN_USE);
-        }
-        else {
-            // printf("ph Reading: %f\n",phValue);
-            printf("ADC_LINE(%u): pH Reading: %f\n", ADC_IN_USE, phValue);
-            printf("ADC_LINE(%u): Turbidity Reading: %f\n", ADC_IN_USE, turbidityValue);
-
-        }
-
-        xtimer_periodic_wakeup(&last, DELAY);
+		// Turbidity
+	    sample_turbidity = adc_sample(ADC_LINE(2), ADC_RES);
+        turbidity = adc_util_map(sample_turbidity, ADC_RES, 0, 5);
 		
+		argv[3] = "1"; 
+
+		// Fill the json document		
+		sprintf(json, "{\"id\": \"%d\", \"datetime\": \"%s\", \"Temperature\": %d.%02d,\"pH\": %.2f,\"Turbidity\": %.2f}",
+                  atoi(argv[3]), todayDateStr, temperature / 100 , temperature % 100 ,  pH, turbidity);        
+				  
+        argv[2] = json;  
+	  /* step 2: publish data */
+      if (emcute_pub(&topic, argv[2], strlen(argv[2]), flags) != EMCUTE_OK) {
+        printf("error: unable to publish data to topic '%s [%i]'\n",
+                topic.name, (int)topic.id);
+        return 1;
+      }
+
+      printf("Published %i bytes to topic '%s  [%i]'\n",
+            (int)strlen(argv[2]), topic.name, topic.id);
+
+      xtimer_periodic_wakeup(&last, DELAY);            
+   }
+    return 0;
+}
+
+static int cmd_sub(int argc, char **argv)
+{
+    unsigned flags = EMCUTE_QOS_0;
+
+    if (argc < 2) {
+        printf("usage: %s <topic name> [QoS level]\n", argv[0]);
+        return 1;
     }
 
+    if (strlen(argv[1]) > TOPIC_MAXLEN) {
+        puts("error: topic name exceeds maximum possible size");
+        return 1;
+    }
+    if (argc >= 3) {
+        flags |= get_qos(argv[2]);
+    }
+
+    /* find empty subscription slot */
+    unsigned i = 0;
+    for (; (i < NUMOFSUBS) && (subscriptions[i].topic.id != 0); i++) {}
+    if (i == NUMOFSUBS) {
+        puts("error: no memory to store new subscriptions");
+        return 1;
+    }
+
+    subscriptions[i].cb = on_pub;
+    strcpy(topics[i], argv[1]);
+    subscriptions[i].topic.name = topics[i];
+    if (emcute_sub(&subscriptions[i], flags) != EMCUTE_OK) {
+        printf("error: unable to subscribe to %s\n", argv[1]);
+        return 1;
+    }
+
+    printf("Now subscribed to %s\n", argv[1]);
+    return 0;
+}
+
+static int cmd_unsub(int argc, char **argv)
+{
+    if (argc < 2) {
+        printf("usage %s <topic name>\n", argv[0]);
+        return 1;
+    }
+
+    /* find subscriptions entry */
+    for (unsigned i = 0; i < NUMOFSUBS; i++) {
+        if (subscriptions[i].topic.name &&
+            (strcmp(subscriptions[i].topic.name, argv[1]) == 0)) {
+            if (emcute_unsub(&subscriptions[i]) == EMCUTE_OK) {
+                memset(&subscriptions[i], 0, sizeof(emcute_sub_t));
+                printf("Unsubscribed from '%s'\n", argv[1]);
+            }
+            else {
+                printf("Unsubscription form '%s' failed\n", argv[1]);
+            }
+            return 0;
+        }
+    }
+
+    printf("error: no subscription for topic '%s' found\n", argv[1]);
+    return 1;
+}
+
+static int cmd_will(int argc, char **argv)
+{
+    if (argc < 3) {
+        printf("usage %s <will topic name> <will message content>\n", argv[0]);
+        return 1;
+    }
+
+    if (emcute_willupd_topic(argv[1], 0) != EMCUTE_OK) {
+        puts("error: unable to update the last will topic");
+        return 1;
+    }
+    if (emcute_willupd_msg(argv[2], strlen(argv[2])) != EMCUTE_OK) {
+        puts("error: unable to update the last will message");
+        return 1;
+    }
+
+    puts("Successfully updated last will topic and message");
+    return 0;
+}
+
+
+static const shell_command_t shell_commands[] = {
+    {"con", "Start the station", cmd_con},
+    { "discon", "disconnect from the current broker", cmd_discon },
+    { "pub", "publish something", cmd_pub },
+    { "sub", "subscribe topic", cmd_sub },
+    { "unsub", "unsubscribe from topic", cmd_unsub },
+    { "will", "register a last will", cmd_will },
+    {NULL, NULL, NULL}};
+	
+int main(void)
+{
+    puts("Water-Quality-Monitoring-System Application");
+	int temp_init;
+	
+	
+	// Initialize the Temperature Sensor
+    temp_init = ds18_init(&dev, &ds18_params[0]);
+    if (temp_init == DS18_OK) {
+        puts("The Temp sensor is initialized\n");
+    }
+	else {
+		puts("Failed to connect to Temp sensor\n");
+        return 1;		
+	}
+   
+   /* initialize the ADC lines for pH and Turbidity*/
+	for (unsigned i = 1; i < 3; i++) {
+    if (adc_init(ADC_LINE(i)) < 0) {
+        printf("Initialization of ADC_LINE(%u) failed\n", i);
+        return 1;
+    }
+    else {
+        printf("Successfully initialized ADC_LINE(%u)\n", i);
+    }
+	}
+	
+   /* the main thread needs a msg queue to be able to run `ping6`*/
+    msg_init_queue(queue, ARRAY_SIZE(queue));
+
+    /* initialize our subscription buffers */
+    memset(subscriptions, 0, (NUMOFSUBS * sizeof(emcute_sub_t)));
+
+    /* start the emcute thread */
+    thread_create(stack, sizeof(stack), EMCUTE_PRIO, 0,
+                  emcute_thread, NULL, "emcute");
+    
+/* Aggiunta temporanea*/
+
+    netif_add("4","2001:0db8:0:f101::5");
+
+/*aggiunta temporanea fine*/
+
+    char line_buf[SHELL_DEFAULT_BUFSIZE];
+    shell_run(shell_commands, line_buf, SHELL_DEFAULT_BUFSIZE);
     return 0;
 }
