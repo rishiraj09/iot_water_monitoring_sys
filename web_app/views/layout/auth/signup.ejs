@@ -1,0 +1,138 @@
+<%- include('../../includes/auth/auth_head.ejs') %>
+
+    <body>
+        <section>
+            <div class="container">
+                <div class="auth_container_wrap">
+                    <div class="auth_title">
+                        <span>Sign Up</span>
+                    </div>
+                    <form action="/auth/signup" id="signupform" method="POST">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group mb-4">
+                                    <input type="text" id="firstname" class="form-control auth_input" name="firstname"
+                                        value="<%=oldInput.firstname%>" placeholder="Frist name">
+
+                                    <%if(validationErrors.length> 0){%>
+
+                                        <%validationErrors.forEach(function(err){%>
+                                            <%if(err.param=='firstname' ){%>
+                                                <div class="input_error">
+                                                    <small>
+                                                        <%=err.msg%>
+                                                    </small>
+                                                </div>
+                                                <%}%>
+                                                    <%})%>
+                                                        <%}%>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group mb-4">
+                                    <input type="text" id="lastname" class="form-control auth_input" name="lastname"
+                                        value="<%=oldInput.lastname%>" placeholder="Last name">
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group mb-4">
+                                    <input type="email" id="email" class="form-control auth_input" name="email"
+                                        value="<%=oldInput.email%>" placeholder="Email">
+
+                                    <%if(validationErrors.length> 0){%>
+
+                                        <%validationErrors.forEach(function(err){%>
+                                            <%if(err.param=='email' ){%>
+                                                <div class="input_error">
+                                                    <small>
+                                                        <%=err.msg%>
+                                                    </small>
+                                                </div>
+                                                <%}%>
+                                                    <%})%>
+                                                        <%}%>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group mb-4">
+                                    <input type="password" id="password" class="form-control auth_input" name="password"
+                                        value="<%=oldInput.password%>" placeholder="Password">
+
+                                    <%if(validationErrors.length> 0){%>
+
+                                        <%validationErrors.forEach(function(err){%>
+                                            <%if(err.param=='password' ){%>
+                                                <div class="input_error">
+                                                    <small>
+                                                        <%=err.msg%>
+                                                    </small>
+                                                </div>
+                                                <%}%>
+                                                    <%})%>
+                                                        <%}%>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group mb-4">
+                                    <div style="display:flex;">
+                                        <input type="number" style="width: 70px;" class="form-control auth_input"
+                                            value="<%=oldInput.country_code%>" id="country_code" name="country_code"
+                                            placeholder="91">
+                                        <input type="number" class="form-control auth_input" id="phone"
+                                            placeholder="Phone" value="<%=oldInput.phone%>" name="phone">
+                                    </div>
+
+                                    <%if(validationErrors.length> 0){%>
+
+                                        <%validationErrors.forEach(function(err){%>
+                                            <%if(err.param=='phone' ){%>
+                                                <div class="input_error">
+                                                    <small>
+                                                        <%=err.msg%>
+                                                    </small>
+                                                </div>
+                                                <%}%>
+                                                    <%})%>
+                                                        <%}%>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="row" style="margin-top: 15px;">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <button class="btn btn-block auth_btn" id="submit_btn">Sign
+                                    Up</button>
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                    </form>
+
+                    <div class="signin_text">
+                        Already have an account? <a class="signin_link" href="/auth/signin">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+
+        </script>
+        <%- include('../../includes/auth/auth_end.ejs') %>

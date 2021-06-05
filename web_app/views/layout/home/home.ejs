@@ -1,0 +1,210 @@
+<%- include('../../includes/site/site_head.ejs') %>
+
+    <section>
+        <div class="main_content">
+            <div class="page_title" style="text-align: center; margin-top: 10px; margin-bottom: 10px;">
+                <span>IoT Water Quality Monitoring System</span>
+            </div>
+            <div class="detail_card_holder">
+                <div class="detail_card">
+                    <!-- chart integration test -->
+                    <div class="d-flex bd-highlight flex-wrap flex-form">
+                        <div class="flex_md_30 flex_form">
+                            <canvas id="tempChart"></canvas>
+                            <script data-sensor_data="<%=sensor_data%>">
+
+                                let sensordata1 = JSON.parse(document.currentScript.dataset.sensor_data);
+
+                                let tempLabel = [];
+                                let tempData = [];
+
+                                sensordata1.forEach(element => {
+                                    tempLabel.push(element.datetime);
+                                    tempData.push(element.temperature);
+                                });
+
+                                let chart1 = document.getElementById('tempChart').getContext('2d');
+
+                                let myChart1 = new Chart(chart1, {
+                                    type: 'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+                                    data: {
+                                        labels: tempLabel,
+                                        datasets: [{
+                                            label: 'Temperature',
+                                            data: tempData,
+                                            backgroundColor: ['#FF4E62'],
+                                            borderColor: [
+                                                '#FF4E62'
+                                            ],
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        plugins: {
+                                            title: {
+                                                display: true,
+                                                text: 'Temperature'
+                                            }
+                                        },
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true
+                                            }
+                                        }
+
+                                    }
+                                });
+                            </script>
+                        </div>
+
+                        <div class="flex_md_30 flex_form">
+                            <canvas id="turChart"></canvas>
+                            <script data-sensor_data="<%=sensor_data%>">
+
+                                let sensordata2 = JSON.parse(document.currentScript.dataset.sensor_data);
+
+                                let turbidityLabel = [];
+                                let turbidityData = [];
+
+                                sensordata2.forEach(element => {
+                                    turbidityLabel.push(element.datetime);
+                                    turbidityData.push(element.turbidity);
+                                });
+                                let chart2 = document.getElementById('turChart').getContext('2d');
+
+                                let myChart2 = new Chart(chart2, {
+                                    type: 'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+                                    data: {
+                                        labels: turbidityLabel,
+                                        datasets: [{
+                                            label: 'Turbidity',
+                                            data: turbidityData,
+                                            backgroundColor: ['#0067FA'],
+                                            borderColor: [
+                                                '#0067FA'
+                                            ],
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        plugins: {
+                                            title: {
+                                                display: true,
+                                                text: 'Turbidity'
+                                            }
+                                        },
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true
+                                            }
+                                        }
+
+                                    }
+                                });
+                            </script>
+                        </div>
+                        <div class="flex_md_30 flex_form">
+                            <canvas id="phChart"></canvas>
+                            <script data-sensor_data="<%=sensor_data%>">
+
+                                let sensordata3 = JSON.parse(document.currentScript.dataset.sensor_data);
+
+                                let phLabel = [];
+                                let phData = [];
+
+                                sensordata2.forEach(element => {
+                                    phLabel.push(element.datetime);
+                                    phData.push(element.ph);
+                                });
+                                let chart3 = document.getElementById('phChart').getContext('2d');
+
+                                let myChart3 = new Chart(chart3, {
+                                    type: 'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+                                    data: {
+                                        labels: phLabel,
+                                        datasets: [{
+                                            label: 'pH Scale',
+                                            data: phData,
+                                            backgroundColor: ['#58CE3D'],
+                                            borderColor: [
+                                                '#58CE3D'
+                                            ],
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        plugins: {
+                                            title: {
+                                                display: true,
+                                                text: 'pH Scale'
+                                            }
+                                        },
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true
+                                            }
+                                        }
+
+                                    }
+                                });
+                            </script>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="page_title" style="text-align: center; margin-top: 10px; margin-bottom: 10px;">
+                <span>IoT Device Sensor Data</span>
+            </div>
+
+            <!-- Display sensor data in table -->
+            <div class="detail_card_holder">
+                <div class="detail_card">
+                    <table class="table display" id="sensor_data_table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>DateTime</th>
+                                <th>Temperature</th>
+                                <th>Turbidity</th>
+                                <th>pH</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%if(sensorData.length>0){%>
+                                <%sensorData.forEach(function(sdata, index){%>
+                                    <tr>
+                                        <td>
+                                            <%=index + 1%>
+                                        </td>
+                                        <td>
+                                            <%=sdata.datetime%>
+                                        </td>
+                                        <td>
+                                            <%=sdata.temperature%>
+                                        </td>
+                                        <td>
+                                            <%=sdata.turbidity%>
+                                        </td>
+                                        <td>
+                                            <%=sdata.ph%>
+                                        </td>
+                                    </tr>
+                                    <%})%>
+                                        <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <script>
+        $(document).ready(function () {
+            $('#sensor_data_table').DataTable();
+        });
+
+    </script>
+
+    <%- include('../../includes/site/site_end.ejs') %>

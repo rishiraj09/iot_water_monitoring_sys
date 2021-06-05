@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+body {
+  background-color: #141415;
+  font-family: "Roboto", sans-serif;
+  color: white;
+}
+
+.auth_container_wrap {
+  margin-top: 50px;
+  border: 1px solid #808b96;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.auth_logo_container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.auth_title {
+  margin-bottom: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+.auth_logo {
+  height: 150px;
+}
+
+input.auth_input,
+select.auth_input {
+  background-color: #141415;
+  color: white;
+  border-top: 1px solid #141415;
+  border-bottom: 1px solid white;
+  border-left: 1px solid #141415;
+  border-right: 1px solid #141415;
+  height: 50px;
+  font-size: 20px;
+}
+input.auth_input:focus,
+input.form-control:focus,
+select.auth_input:focus {
+  background-color: #141415;
+  color: white;
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  border-top: 1px solid #141415;
+  border-bottom: 1px solid white;
+  border-left: 1px solid #141415;
+  border-right: 1px solid #141415;
+}
+
+input.auth_input_border,
+select.auth_input_border {
+  background-color: #141415;
+  color: white;
+  /* border: 1px solid white; */
+  border-radius: 10px;
+  height: 50px;
+  font-size: 20px;
+}
+input.auth_input_border:focus,
+input.form-control.auth_input_border:focus,
+select.auth_input_border:focus {
+  background-color: #141415;
+  color: white;
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* for vertical scrollbars */
+  height: 8px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: #626567;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1b1b1c;
+}
+
+.auth_btn {
+  background-color: #e61b43;
+  border-radius: 10px;
+  color: white;
+  margin-bottom: 20px;
+}
+.auth_btn:hover {
+  color: white;
+}
+.prepend {
+  color: white;
+  border-top: 1px solid #141415;
+  border-bottom: 1px solid white;
+  border-left: 1px solid #141415;
+  border-right: 1px solid #141415;
+  background-color: #141415 !important;
+}
+
+.input_error {
+  margin-top: 5px;
+  color: #e61b43;
+}
+
+.signin_text {
+  text-align: center;
+  font-size: 20px;
+}
+.signin_link {
+  text-decoration: none;
+  color: #e61b43;
+  font-size: 20px;
+}
+.signin_link:hover {
+  text-decoration: none;
+  color: #e61b43;
+  font-size: 20px;
+}
+
+.otp_v_title2 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
